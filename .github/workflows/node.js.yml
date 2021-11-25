@@ -38,5 +38,5 @@ jobs:
       - name: 'run 【dsj】'
         run: |
           cd ~/js   
-          node Task/dsjtx.js
+          node Task/dsjtx1.js
 
