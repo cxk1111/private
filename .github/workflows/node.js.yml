@@ -1,4 +1,4 @@
-name: zq CI
+name:  CI
 
 on:
   workflow_dispatch:
@@ -35,3 +35,8 @@ jobs:
           node Task/youthshare4.js
           node Task/youthshare5.js
           node Task/youthshare6.js
+      - name: 'run 【dsj】'
+        run: |
+          cd ~/js   
+          node Task/dsjtx.js
+
