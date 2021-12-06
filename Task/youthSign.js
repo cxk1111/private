@@ -17,10 +17,9 @@ const opboxtime = $.getdata('opbox');
 
 
 /*ck存放区*/
-cookie = "MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOwzZuwhaKCm664qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKars-2rIOJdbKEY2Ft"
-cookieid = "7bfe95c28eaa7bfe4bb04a0fce665958"
-//timebodyVal = 'p=9NwGV8Ov71o=gW5NEpb6rjb84bkaCQyOq-myT0C-Ktb_mEtDEGsOrBruuZzIpWlevTEf2n4e6SDtwtHI8jh7tGLFm1iscPtbZwlhO1--2rPMqEVay5SHQZ0Xa5om9y_QnFioIoDSg-ArtrfwznZt1IhRAOspLNm4F1Z4mRILDUTDM9AS-u45jBDxKekfVGwiWHcQammhDRTYrZuDBoknZJ1oAF77s8FUK920uBdQYMucK7Di6mQ5azyEX5vAZKmPyHGABhVGfRvEFXlUDlPqU0ojmERE6B_nfO0_Xw0UPn7t146utj0a4X_6S5dl8CnyVLtiituzwOA3IAdc83j--TAPdl5rTjww_wwI0bYil23NLJ3-hBJaJFlWdD8g7OeGUKY2FQt_tRm2C4AbT2GC2M6UE2hUikNwUNHzyxLIwQ3Xiq1Y4CmQWHNic2JC1HtW8J14lPxPAmgDJMo3En90hvmN8E1oYDe0MgYFHd3aFXOe3bIJpxHajBL7yVbIULs04E5dJBlqwLgszVkdQXGDOl53_NtihzJ1kemGh-OPGOaOQjwSJHTJkX0NzBKa2ic4B-kWmyJe28q0q7Y3zhc0pWrigP6lGtcXv_8HgsU_TWt7vnONcp_NFJUdePUFsBc7pLvApCJGR2Pb_wS7IurASkNOJzkHHuNkIXVvInS4Fb8KawbdYZ0BzFU_-qtKLNoORiGiaDrbsh4WPbOhyxO2XTghNu_3aK0IzE92MIi-ySFtUhkm6EpvOXwiUQxrfSfvJ1uOIPG66eSL0Y_2hFUA9GSX1GFdPj1CBBXwjfTXcmnrkQaLC8LUhLrCqdwcoZgikt47309tL0H-zLEJ4cP-dtI=';
-
+let cookie = "MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOwzZuwhaKCm664qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKars-2rIOJdbKEY2Ft"
+let cookieid = "7bfe95c28eaa7bfe4bb04a0fce665958"
+let url = "https://script.baertt.com/count2/callback?si=dc4f108a00226febb43297a80f623412&referer=https%253A%252F%252Ffocus.youth.cn%252Farticle%252Fs%253Fsignature%253DRpqGjEWYvLyBl2g1l2dVMAIzY0XdTvKlpQE7D56Pd3OMonkQx9%2526uid%253D52806391%2526phone_code%253Dd84c65e2a2b03897b46fc69116f4cee4%2526scid%253D41101016%2526time%253D1638611370%2526app_version%253D2.0.2%2526sign%253De8a6d7c88a15a232d82e335edd2febf9&_=1638611392396&jsonpcallback=jsonp5"
 
 
 
@@ -31,6 +30,7 @@ cookieid = "7bfe95c28eaa7bfe4bb04a0fce665958"
     taskarr = ["read_time_sixty_minutes", "watch_article_reward", "watch_video_reward", "read_time_two_minutes", "first_share_article", "new_fresh_five_video_reward"]
 
     console.log(`-------------------------\n\n开始【中青看点】`)
+    await getShareInfo();
     await sign();
     await signInfo();
     //await friendsign();
@@ -63,6 +63,64 @@ cookieid = "7bfe95c28eaa7bfe4bb04a0fce665958"
     .finally(() => $.done())
 
 
+
+
+//分享数据获取
+async function getShareInfo() {
+    try {
+        var s_si = url.match(/si=(.*?)&/)[1];
+       // console.log("url:" + url);
+       // console.log("s_si:" + s_si);
+        //$.msg("中青分享", "", "数据获取成功");
+        for (let i = 1; i < 5; i++) {
+            await postShareInfoa(url, s_si, i)
+        }
+    } catch (error) {
+        $.msg("中青数据获取失败", "", "️中青数据获取失败");
+    }
+}
+async function postShareInfoa(o_url, o_si, num) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            var n_si = randomsi();
+            var iosV = parseInt(Math.random() * (14 - 11 + 1) + 11, 1);
+            var n_url = o_url.replace(o_si, n_si);
+            var header = {
+                'Accept-Encoding': `gzip, deflate, br`,
+                'Accept': `*/*`,
+                'Connection': `keep-alive`,
+                'Referer': `https://focus.youth.cn/`,
+                'Host': `script.baertt.com`,
+                'User-Agent': `Mozilla/5.0 (iPhone; CPU iPhone OS ${iosV}_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.7(0x18000730) NetType/WIFI Language/zh_CN`,
+                'Accept-Language': `zh-cn`
+            };
+
+            let url = {
+                url: n_url,
+                headers: header,
+            };
+            $.get(url, async (err, resp, data) => {
+                try {
+                    console.log(data)
+                } catch (e) {
+                    $.logErr(e, resp);
+                } finally {
+                    resolve()
+                }
+            });
+
+            return 0;
+        }, 3000)
+    })
+}
+
+//随机udid 小写
+function randomsi() {
+    function S4() {
+        return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+    }
+    return (S4() + S4() + S4() + S4() + S4() + S4() + S4() + S4());
+}
 
 
 function boxfinish(id) {
