@@ -33,20 +33,6 @@ async function all() {
          await adlickend();
  
      }
-
-   /* for (let i = 0; i < kankandata.kankan[0].length; i+=100) {
-       //i=1050;
-        $.log(`\n准备第${i + 1}次任务`);
-        Token = kankandata.kankan[0].substring(0, i) + oldbody.substring(i, i+100) + kankandata.kankan[0].substring(i+100);
-        //Token = oldbody.substring(0, i) + kankandata.kankan[0].substring(i, i+100) + oldbody.substring(i+100);
-        await adlickstart();
-         await $.wait(randomNum(0, 200));
-         for (let i = 0; i < 6; i++) {
-             await bannerstatus(i);
-             await $.wait(randomNum(0, 200));
-         }
-         await adlickend();
-    }*/
 }
 
 function adlickstart() {
