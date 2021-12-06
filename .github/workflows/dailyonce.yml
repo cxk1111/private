@@ -1,0 +1,33 @@
+name:  CI
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest 
+    if: github.event.repository.owner.id == github.event.sender.id
+    env:
+        User: ${{ github.event.repository.owner.id }}
+    steps:
+
+      - name: Checkout
+        run: |
+          git clone https://github.com/cxk1111/private.git ~/js
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          cd ~/js
+          npm install
+          npm install cron
+          npm install request
+          npm install md5-node
+      - name: 'run 【zq】'
+        run: |
+          cd ~/js   
+          node Task/Youth_Kankan.js
+
