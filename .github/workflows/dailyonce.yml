@@ -1,4 +1,4 @@
-name:  CI
+name:  daily
 
 on:
   workflow_dispatch:
