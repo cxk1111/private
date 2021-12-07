@@ -17,47 +17,50 @@ const opboxtime = $.getdata('opbox');
 
 
 /*ck存放区*/
-let cookie = "MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOwzZuwhaKCm664qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKars-2rIOJdbKEY2Ft"
-let cookieid = "7bfe95c28eaa7bfe4bb04a0fce665958"
+let cookiearr = ["MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOwzZuwhaKCm664qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKars-2rIOJdbKEY2Ft","MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOxp59thLJ-mK6oqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooLert-qZoOJiW6EY2Ft"]
+let cookieidarr = ["7bfe95c28eaa7bfe4bb04a0fce665958","761b3a4e920fe431bb753db0d00aabf5"]
 let url = "https://script.baertt.com/count2/callback?si=dc4f108a00226febb43297a80f623412&referer=https%253A%252F%252Ffocus.youth.cn%252Farticle%252Fs%253Fsignature%253DRpqGjEWYvLyBl2g1l2dVMAIzY0XdTvKlpQE7D56Pd3OMonkQx9%2526uid%253D52806391%2526phone_code%253Dd84c65e2a2b03897b46fc69116f4cee4%2526scid%253D41101016%2526time%253D1638611370%2526app_version%253D2.0.2%2526sign%253De8a6d7c88a15a232d82e335edd2febf9&_=1638611392396&jsonpcallback=jsonp5"
 
 
 
 
 !(async () => {
-    signheaderVal = { "Referer": `https://kd.youth.cn/h5/20190301taskcenter/ios/index.html?access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=${cookieid}&device_type=1&device_brand=iphone&cookie=${cookie}` }
+    
     newtaskarr = ["taskbox_watch", "taskbox_ad", "taskbox_game", "taskbox_video", "taskbox_read"]
     taskarr = ["read_time_sixty_minutes", "watch_article_reward", "watch_video_reward", "read_time_two_minutes", "first_share_article", "new_fresh_five_video_reward"]
 
     console.log(`-------------------------\n\n开始【中青看点】`)
     await getShareInfo();
-    await sign();
-    await signInfo();
-    //await friendsign();
-    await punchCard()
-    await endCard();
-    await SevCont();
-    await TimePaceket();
 
- //   for (let i = 0; i < 4; i++)
-  //  await boxfinish(i+1);
+    for (let i = 0; i < cookiearr.length; i++) {
+        cookie=cookiearr[i];
+        cookieid=cookieidarr[i];
+        signheaderVal = { "Referer": `https://kd.youth.cn/h5/20190301taskcenter/ios/index.html?access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=${cookieid}&device_type=1&device_brand=iphone&cookie=${cookie}` }
+        
+        await sign();
+        await signInfo();
+        await punchCard()
+        await endCard();
+        await SevCont();
+        await TimePaceket();
 
-    for (let i = 0; i < taskarr.length; i++)
-        await finishtask(taskarr[i]);
+        //   for (let i = 0; i < 4; i++)
+        //  await boxfinish(i+1);
 
-    for (let i = 0; i < newtaskarr.length; i++)
-        await newfinishtask(newtaskarr[i]);
-    await openbox();
-    //await readTime();
-    for (let i = 0; i < 5; i++) {
-        await rotary();
-        await $.wait(3000);
+        for (let i = 0; i < taskarr.length; i++)
+            await finishtask(taskarr[i]);
+
+        for (let i = 0; i < newtaskarr.length; i++)
+            await newfinishtask(newtaskarr[i]);
+        await openbox();
+        for (let i = 0; i < 5; i++) {
+            await rotary();
+            await $.wait(3000);
+        }
+        await rotaryCheck();
+        await earningsInfo();
+        await showmsg();
     }
-
-    //await rotary();
-    await rotaryCheck();
-    await earningsInfo();
-    await showmsg();
 })()
     .catch((e) => $.logErr(e))
     .finally(() => $.done())
@@ -69,8 +72,8 @@ let url = "https://script.baertt.com/count2/callback?si=dc4f108a00226febb43297a8
 async function getShareInfo() {
     try {
         var s_si = url.match(/si=(.*?)&/)[1];
-       // console.log("url:" + url);
-       // console.log("s_si:" + s_si);
+        // console.log("url:" + url);
+        // console.log("s_si:" + s_si);
         //$.msg("中青分享", "", "数据获取成功");
         for (let i = 1; i < 5; i++) {
             await postShareInfoa(url, s_si, i)
