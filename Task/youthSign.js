@@ -659,7 +659,7 @@ function earningsInfo() {
     })
 }
 async function showmsg() {
-    $.msg($.name + "  " + nick + " " + rotarynum, subTitle, detail)
+    $.msg($.name + "  " + nick + " ", subTitle, detail)
 }
 
 // prettier-ignore
