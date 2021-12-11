@@ -30,4 +30,7 @@ jobs:
         run: |
           cd ~/js   
           node Task/Youth_Kankan.js
-
+      - name: 'run 【ttdt】'
+        run: |
+          cd ~/js   
+          node Task/ttdt.js

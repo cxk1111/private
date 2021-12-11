@@ -1,26 +1,37 @@
 
 
-const jobname = 'youthread'
+const jobname = 'ttdt'
+const { timeStamp } = require('console');
+const { MD5 } = require('crypto-js');
 const $ = Env(jobname)
 var sd = require('silly-datetime');
 let articlebody = require("../JSON/Youth_common.json");
-
-
-/*ck存放区*/
-let theoldbodyarr =
-    [
-        "p=9NwGV8Ov71o%3DGvDnjwMsu_lk8V15hrmPeFtKCBAoDX5kqrLpJGAkdwV8gOpPHTnSb0teFjo1jrcifqoNj3_RemNb3TiFovY-1PfWLcpI0sDSuCNyWZD6DyadQrpIAGITuGeoq63KU26pJWRzQ4yj3z0pwrkGEcnvDVekaRauiCZ1MTiQw5a0737mNmvj2DFacERFVnfr77Rw8uKocxTWGdWfcZTJ6mJVUjDevRSjaeFpWj4cUCHs_mzHH53oiCa9oRm4kIaUmVTiwA8aPBgW7AyDqrSnB1tzLEECmrgdA_LC44GrTijTWWf-CnaT-UnDnJNrQRxbKshLbHdfVfiW31M36QJZm7mLE7F3eDkeqzgj0W9dUS6xbmquvTYJB2OjAzBrYiBuaTbrU_CT6djGwtFe1s4KqoxmjT0wPoBW8w5m1R4GI4gcGJhcNvQjt7srXyBOixMnxIKfxcIkq_R5_7dlsMWkyk89vlCBs99JPmBGEYygysYHcBGjm1bLubfCvIWLUNftdaDq_7XVepaT06YJk6nZNQ5fcGdijz985pwLaw9Hkfh9gmd3hkKzxo2zToh72v7ar-OsQl_V5QEm8u3IINvFA0HdcCLXbCIj2WidORlgWTkDUb1UKVjvzQ2yL1gD2Zm16xWsdS17XJDJY7GbxJ8fmKmpxuWhKSVUCk95hEixmJYyxBEutSXrg0Xbi4c16q37X2hey8GFtFJU-iueJZFdwmecwkneX8wY0qgX63Vzy8PvaYB4zEXKzlDP0yO6O_hbc0Y7VRNl_YFBYazF2qkj0mav-Y-5nJ8belOv6rhBnn97a8T_aZ8mMZWn-O639oub53QjWADl01HhTBJq7nyAECuqWKlu2aJ0K1m3SKOXmyt484F7THBHT8i9VoEmMzH2lJaG",
-        "p=9NwGV8Ov71o%3DgW5NEpb6rjab0hHSxXenkWHSkCwB26b0x_gtnWSAWxe4W5DsfKJWZPwAF2APbf1s0ag2abr93KOIAhj4XIgOdiGaPccsoszmfU6_aRpyyT3BnBSwUQq_Vm5kPmhva2_3OR6XxNsyYRifjsh_-MoiAC9X3dph4OQfdDvIf6IGepwJwewplGHK3zJ1SyG0Iu-XxpZxPnqMRCIK_8wkaRCU1eqtTJTMwLXjt4lzXISDr0Byii0NnsBLBbPEvypVZKScnOXvibtxXd5h4HCJSelm8_AzLv-i88-_slJnbtkXQSb5mSJY-D2W6sPlmVlrYEOoMBqpazRo7jzliy4UDm8WqYro9RXuh6AzbTGtb2zE0y-TTxDmr6MUW-10tY_KKGv5YuTfKTKYD_b4j6uGhpMNBiTKO3KlRbcp87VerCAVHeYQLanKu3gBkh-AZNX8YRcAbpZVSiCJYNh-eMTNdVsroSUWQsljItvF1qgzZCmrj6tYkNIkSw4ZF2L08_hVExPqx4KgmS038Da1dTRoTtqwOJ7U7KVJPWnpBWZ26WaP7-FpY7ibucfW8X2wVNbgoK5ssQDT1ZGF4qN9XW5m6M6vruYfg9xnp9EgQYJb75M7yCF8c286A7O_rF1Rjx16bsdGxxRw2w2LU8aadSR0gz0ic1Gd5-xi46TGHOAiZuTt4g0vXL6m9oiGhoGA_MWYO8sT4UWX0gfVlP1ZvWBT2iX6rP2oMj910UBPIl-eBNwt1quNBRLCZ1lfPtWxYWHp2pSYFjCr0dqaJYN01BHiS-Xz4bKyWzValaE_Qax2sTFlcW0NR6bF-Lk62ED9-OvhTZgFV6hsxeo2ALKmYddb6QcVP91s3yr4EdW8PjdU1BF1B-NZgdgyXyJdaw9IHiya4F-0"
-    ]
-let timebodyValarr =
-    [
-        'p=9NwGV8Ov71o=GvDnjwMsu_ld4qx0YVkhCGSN79Nz9uYVd_6x03zS0fnS8kKdOyWyDMKSICaFBvwH5U4nsR_vvJsjHH2Z81CBL7eyJjtPmVfyM0x8EAsS-_ESh4-JImy11uTAadxMJCYAdD7P_w27pQt6_tIUTgtnDG7LOKwRL-IZbYYNciqqQLL668-J89JrJs71imvZziw6VQrDJSaPYBNMiOz_ziM611zHz1pHPf3DA2hjz2cSJ4jaSpZTqcSgmHruiXNvQa9RC98phL98FAmJjIGYQUEA9Vo7IGhXstlrxrs2VqSEw8zfNCM0AYT3r2tEICkM-64mf_4JDTbkN-pVrNiaH4PbK03P8XNMDDi1G2bgmiInRsSqI0faHn-VW1p21PW7HC-b5k5tO7hVsuvuNKvqSMDg0evXEA6iOadUzIhPrzwbVEpkkUT_osYYUlhMkjtFWRUNb5gxkgNfToR7YS4EeyG6qfPGbyAy2CpWsqDEltALf_46fLSmpYpncvEi0Frqy1_5wctEWAXbAOSyFLGPPrj-8480KbQ5-uWmZ5B2TpKd_UrkqKFVrz5mhvX60P9k2SaXmT3w-22MgRzczPjeej__en_JYJque_kdB-gYuhslSwHviWhc-tE3ogaPtmr6JzagrAORPuNHwknwCp5hGmMniM7xSIcZm-9C98Ey9eIzG6D38DezEkbsvIvi_m68WXb1_ajm9QsVy-CI8_zYBBbPexmnOufEGgtyO7dgRPm9b8gE0EsFzvgKyq3ycLMi-CaCVWmqxUYcb__00DFbsDU4wSyMItZNXoZIBn3W_GowGIu080cXpDslBdloR5LFT7xx',
-        'p=9NwGV8Ov71o=gW5NEpb6rjb84bkaCQyOq-myT0C-Ktb_mEtDEGsOrBruuZzIpWlevTEf2n4e6SDtwtHI8jh7tGLFm1iscPtbZwlhO1--2rPMqEVay5SHQZ0Xa5om9y_QnFioIoDSg-ArtrfwznZt1IhRAOspLNm4F1Z4mRILDUTDM9AS-u45jBDxKekfVGwiWHcQammhDRTYrZuDBoknZJ1oAF77s8FUK920uBdQYMucK7Di6mQ5azyEX5vAZKmPyHGABhVGfRvEFXlUDlPqU0ojmERE6B_nfO0_Xw0UPn7t146utj0a4X_6S5dl8CnyVLtiituzwOA3IAdc83j--TAPdl5rTjww_wwI0bYil23NLJ3-hBJaJFlWdD8g7OeGUKY2FQt_tRm2C4AbT2GC2M6UE2hUikNwUNHzyxLIwQ3Xiq1Y4CmQWHNic2JC1HtW8J14lPxPAmgDJMo3En90hvmN8E1oYDe0MgYFHd3aFXOe3bIJpxHajBL7yVbIULs04E5dJBlqwLgszVkdQXGDOl53_NtihzJ1kemGh-OPGOaOQjwSJHTJkX0NzBKa2ic4B-kWmyJe28q0q7Y3zhc0pWrigP6lGtcXv_8HgsU_TWt7vnONcp_NFJUdePUFsBc7pLvApCJGR2Pb_wS7IurASkNOJzkHHuNkIXVvInS4Fb8KawbdYZ0BzFU_-qtKLNoORiGiaDrbsh4WPbOhyxO2XTghNu_3aK0IzE92MIi-ySFtUhkm6EpvOXwiUQxrfSfvJ1uOIPG66eSL0Y_2hFUA9GSX1GFdPj1CBBXwjfTXcmnrkQaLC8LUhLrCqdwcoZgikt47309tL0H-zLEJ4cP-dtI='
-    ];
-
-
-
-
+let currenttime;
+let md5str;
+let sign;
+let uq_idarr = [];
+let task_id;
+let session_id;
+let pl_id
+let answerarr = ['A', 'B', 'C', 'D'];
+let imei
+let theresult
+let index
+$.message = "";
+imeiarr = [
+    "A0F444E3-240A-4511-80D9-D64A89744C41",
+    "23258A75-131B-43C5-AD2C-00C447A88908",
+    "4A042138-6669-412D-80E8-13D6B0B67F15",
+    "E6269633-5FEA-4068-9EDF-B8043781E9E9",
+    "E205A893-A621-4FFB-BC75-517B1BBB181E",
+    "8052F2C4-61C8-4395-B5FA-3A2443728C28",
+    "87038CB6-83BB-4E31-BDB3-1A96C9F6F051",
+    "FC89D538-8789-4ED3-A15E-0F6125BD7191",
+    "F7F4403B-D1DE-41AE-8F4C-DCB4DF6877FD",
+    "2535DBC0-0E95-4BA9-884D-8EED93CB633E",
+    "202118AC-3BEB-45E0-80CB-69C7E5EFCB84",
+    "810ECFA0-970A-4EFF-92B4-8223A4F33203"
+]
 !(async () => {
     await all();
 })()
@@ -32,24 +43,122 @@ let timebodyValarr =
     })
 
 async function all() {
-    for (let i = 0; i < articlebody.datas.length; i++) {
-        for (let j = 0; j < theoldbodyarr.length; j++) {
-            timebodyVal = timebodyValarr[j];
-            newbody = articlebody.datas[i].substring(0, 818) + theoldbodyarr[j].substring(818, 869) + articlebody.datas[i].substring(869);
-            await readreward(newbody);
+
+    for (let imeiindex = 0; imeiindex < imeiarr.length; imeiindex++) {
+        $.log(`\n第${imeiindex + 1}个账号执行任务:`)
+        imei = imeiarr[imeiindex];
+        currenttime = parseInt(new Date().getTime() / 1000)//当前时间戳；
+        md5str = `imei=${imei}&time=${currenttime}&key=NcfVw#l5A!gQEO5@`
+        sign = MD5(md5str).toString().toUpperCase();
+        await login();
+        
+                while(1) {
+                    currenttime = parseInt(new Date().getTime() / 1000)//当前时间戳；
+                    md5str = `session_id=${session_id}&time=${currenttime}&key=NcfVw#l5A!gQEO5@`
+                    sign = MD5(md5str).toString().toUpperCase();
+                    await getQuestionList()
+                    //await $.wait(1000);
+                    for (let i = 0; i < uq_idarr.length; i++) {
+                        for (let j = 0; j < answerarr.length; j++) {
+                            currenttime = parseInt(new Date().getTime() / 1000)//当前时间戳；
+                            md5str = `answer=${answerarr[j]}&session_id=${session_id}&time=${currenttime}&uq_id=${uq_idarr[i]}&key=NcfVw#l5A!gQEO5@`
+                            sign = MD5(md5str).toString().toUpperCase();
+                            theresult = await getAnsewr(j, i);
+                            if (theresult == true) {
+                                currenttime = parseInt(new Date().getTime() / 1000)//当前时间戳；
+                                md5str = `pl_id=${pl_id}&session_id=${session_id}&time=${currenttime}&key=NcfVw#l5A!gQEO5@`
+                                sign = MD5(md5str).toString().toUpperCase();
+                                await doubleReward();
+                            }
+                            if (theresult == "100") {
+                                break;
+                            }
+                        }
+                        if (theresult == "100") {
+                            break;
+                        }
+                    }
+                    if (theresult == "100") {
+                        break;
+                    }
+                }
+        
+                for (task_id = 1; task_id <= 30; task_id++) {
+                    currenttime = parseInt(new Date().getTime() / 1000)//当前时间戳；
+                    md5str = `session_id=${session_id}&task_id=${task_id}&time=${currenttime}&key=NcfVw#l5A!gQEO5@`
+                    sign = MD5(md5str).toString().toUpperCase();
+                    theresult = await getTaskAward()
+                    if (theresult == true) {
+                        currenttime = parseInt(new Date().getTime() / 1000)//当前时间戳；
+                        md5str = `pl_id=${pl_id}&session_id=${session_id}&time=${currenttime}&key=NcfVw#l5A!gQEO5@`
+                        sign = MD5(md5str).toString().toUpperCase();
+                        await doubleReward();
+                    }
+                }
+        
+        let typearr = [24, 6, 5, 12, 24, 24, 7, 14, 29];
+        for (index = 1; index <= 9; index++) {
+            type = typearr[index - 1];
+            currenttime = parseInt(new Date().getTime() / 1000);//当前时间戳；
+            md5str = `is_new=1&session_id=${session_id}&time=${currenttime}&type=${type}&key=NcfVw#l5A!gQEO5@`;
+            sign = MD5(md5str).toString().toUpperCase();
+            for (let ci = 0; ci < 15; ci++)
+                await clickLog();
+
+            currenttime = parseInt(new Date().getTime() / 1000)//当前时间戳；
+            md5str = `index=${index}&session_id=${session_id}&time=${currenttime}&key=NcfVw#l5A!gQEO5@`
+            sign = MD5(md5str).toString().toUpperCase();
+            await collectActive();
         }
-        await $.wait(30000);
+
+
+        currenttime = parseInt(new Date().getTime() / 1000);//当前时间戳；
+        md5str = `is_new=1&session_id=${session_id}&time=${currenttime}&type=${type}&key=NcfVw#l5A!gQEO5@`;
+        sign = MD5(md5str).toString().toUpperCase();
+        await clickLog();
+
+
+        currenttime = parseInt(new Date().getTime() / 1000);//当前时间戳；
+        md5str = `session_id=${session_id}&time=${currenttime}&key=NcfVw#l5A!gQEO5@`;
+        sign = MD5(md5str).toString().toUpperCase();
+        await getRedluckyMoney();
+
+
+        type_idarr = [101, 102, 103, 301]
+        for (let ti = 0; ti < type_idarr.length; ti++) {
+            type_id = type_idarr[ti];
+            currenttime = parseInt(new Date().getTime() / 1000)//当前时间戳；
+            md5str = `pay_type=2&session_id=${session_id}&time=${currenttime}&type_id=${type_id}&key=NcfVw#l5A!gQEO5@`
+            sign = MD5(md5str).toString().toUpperCase();
+            await withdrawThirdApply();
+            await $.wait(2000);
+        }
+
+
+        currenttime = parseInt(new Date().getTime() / 1000);//当前时间戳；
+        md5str = `session_id=${session_id}&time=${currenttime}&key=NcfVw#l5A!gQEO5@`;
+        sign = MD5(md5str).toString().toUpperCase();
+        await withdraw();
+
     }
+    $.msg($.message);
+
 }
 
 
-function readreward(body) {
+
+
+
+function getRedluckyMoney() {
     return new Promise((resolve, reject) => {
-        const url = "https://ios.baertt.com/v5/article/complete.json";
+        const url = "http://pic.anngudao.com/index/money/getRedluckyMoney";
+        const headers = {
+        };
+        const body = `session_id=${session_id}&sign=${sign}&time=${currenttime}`;
         const request = {
             url: url,
-            headers: {},
-            body: `${body}`
+            headers: headers,
+            body: body
         };
 
         $.post(request, async (error, response, data) => {
@@ -58,21 +167,232 @@ function readreward(body) {
                     $.log('请求失败');
                 }
                 else {
-                    readres = JSON.parse(data);
-                    if (readres.error_code == '0' && typeof readres.items.read_score === 'number') {
-                        console.log(`【阅读文章】本次阅读获得${readres.items.read_score}个青豆，请等待30s后执行下一次阅读`);
-                        if (readres.items.read_score > 5)
-                            await AddReadTime();
+                    result = JSON.parse(data);
+                    $.log(`昨日奖励:${result.message}`)
+                }
+            } catch (e) {
+                $.log(e)
+            }
+            resolve();
+        })
+    })
+}
+
+
+
+function withdrawThirdApply() {
+    return new Promise((resolve, reject) => {
+        const url = "http://pic.anngudao.com/index/money/withdrawThirdApply";
+        const headers = {
+        };
+        const body = `pay_type=2&session_id=${session_id}&sign=${sign}&time=${currenttime}&type_id=${type_id}`;
+        const request = {
+            url: url,
+            headers: headers,
+            body: body
+        };
+
+        $.post(request, async (error, response, data) => {
+            try {
+                if (error) {
+                    $.log('请求失败');
+                }
+                else {
+                    result = JSON.parse(data);
+                    $.log(`提现：提现类型${type_id}，${result.message}`)
+                }
+            } catch (e) {
+                $.log(e)
+            }
+            resolve();
+        })
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function withdraw() {
+    return new Promise((resolve, reject) => {
+        const url = "http://pic.anngudao.com/index/money/withdraw";
+        const headers = {
+        };
+        const body = `session_id=${session_id}&sign=${sign}&time=${currenttime}`;
+        const request = {
+            url: url,
+            headers: headers,
+            body: body
+        };
+
+        $.post(request, async (error, response, data) => {
+            try {
+                if (error) {
+                    $.log('请求失败');
+                }
+                else {
+                    result = JSON.parse(data);
+                    $.message += `【用户昵称】${result.data.wxNickname}\n【用户余额】${result.data.user_money}\n\n`
+                }
+            } catch (e) {
+                $.log(e)
+            }
+            resolve();
+        })
+    })
+}
+
+
+function finishAction(action) {
+    return new Promise((resolve, reject) => {
+        const url = `http://pic.anngudao.com/index/user/${action}`;
+        const headers = {
+
+        };
+        const body = `session_id=${session_id}&sign=${sign}&time=${currenttime}`;
+        const request = {
+            url: url,
+            headers: headers,
+            body: body
+        };
+
+        $.post(request, async (error, response, data) => {
+            try {
+                if (error) {
+                    $.log('请求失败');
+                }
+                else {
+                    result = JSON.parse(data);
+                    $.log(`${result.message}`)
+                }
+            } catch (e) {
+                $.log(e)
+            }
+            resolve();
+        })
+    })
+}
+
+
+
+function clickLog() {
+    return new Promise((resolve, reject) => {
+        const url = "http://pic.anngudao.com/index/api/clickLog";
+        const headers = {
+
+        };
+        const body = `is_new=1&session_id=${session_id}&sign=${sign}&time=${currenttime}&type=${type}`;
+        const request = {
+            url: url,
+            headers: headers,
+            body: body
+        };
+
+        $.post(request, async (error, response, data) => {
+            try {
+                if (error) {
+                    $.log('请求失败');
+                }
+                else {
+                    result = JSON.parse(data);
+                    $.log(`${result.message}`)
+                }
+            } catch (e) {
+                $.log(e)
+            }
+            resolve();
+        })
+    })
+}
+
+
+
+
+
+
+function collectActive() {
+    return new Promise((resolve, reject) => {
+        const url = "http://pic.anngudao.com/dati/free/collectActive";
+        const headers = {
+
+        };
+        const body = `index=${index}&session_id=${session_id}&sign=${sign}&time=${currenttime}`;
+        const request = {
+            url: url,
+            headers: headers,
+            body: body
+        };
+
+        $.post(request, async (error, response, data) => {
+            try {
+                if (error) {
+                    $.log('请求失败');
+                }
+                else {
+                    result = JSON.parse(data);
+                    $.log(`${result.message}`)
+                }
+            } catch (e) {
+                $.log(e)
+            }
+            resolve();
+        })
+    })
+}
+
+
+
+
+
+
+
+
+
+
+function getAnsewr(aindex, uindex) {
+    return new Promise((resolve, reject) => {
+        const url = "http://pic.anngudao.com/dati/index/getAnswer";
+        const headers = {
+
+        };
+        const body = `answer=${answerarr[aindex]}&session_id=${session_id}&sign=${sign}&time=${currenttime}&uq_id=${uq_idarr[uindex]}`;
+        const request = {
+            url: url,
+            headers: headers,
+            body: body
+        };
+
+        $.post(request, async (error, response, data) => {
+            try {
+                if (error) {
+                    $.log('请求失败');
+                }
+                else {
+                    result = JSON.parse(data);
+                    if (result.result == 1 && result.data.res_code == 1) {
+                        $.log(`第${uindex + 1}题回答:正确`)
+                        pl_id = result.data.pl_id;
+                        resolve(true);
 
                     }
-                    else if (readres.error_code == '0' && typeof readres.items.score === 'number') {
-                        console.log(`【阅读文章】本次阅读获得${readres.items.score}个青豆，即将开始下次阅读`);
-
+                    if (result.result == 1 && result.data.res_code == 0) {
+                        $.log(`第${uindex + 1}题回答:错误`)
+                        resolve(false);
                     }
-                    else {
-                        console.log(`请求失败`)
-                        $.log(data);
-
+                    if (result.result == 0 && result.message.indexOf("明天继续加油") != -1) {
+                        $.log(`${result.message}`)
+                        resolve("100");
                     }
                 }
             } catch (e) {
@@ -83,24 +403,168 @@ function readreward(body) {
     })
 }
 
-function AddReadTime() {
 
+
+
+function getQuestionList() {
     return new Promise((resolve, reject) => {
-        let url = {
-            url: `https://ios.baertt.com/v5/user/stay.json`,
-            headers: {
-                'User-Agent': 'KDApp/1.7.8 (iPhone; iOS 14.0; Scale/3.00)'
-            },
-            body: timebodyVal,
-        };
-        $.post(url, async (error, response, data) => {
-            let result = JSON.parse(data);
-            console.log(`【阅读时间】增加1分钟，${result.message}`);
-            resolve()
-        })
+        const url = "http://pic.anngudao.com/dati/index/getQuestionList";
+        const headers = {
 
+        };
+        const body = `session_id=${session_id}&sign=${sign}&time=${currenttime}`;
+        const request = {
+            url: url,
+            headers: headers,
+            body: body
+        };
+
+        $.post(request, async (error, response, data) => {
+            try {
+                if (error) {
+                    $.log('请求失败');
+                }
+                else {
+
+                    result = JSON.parse(data);
+                    let temp = "";
+                    uq_idarr = [];
+                    for (let i = 0; i < result.data.question_list.length; i++) {
+                        uq_idarr.push(result.data.question_list[i].uq_id);
+                        temp += result.data.question_list[i].uq_id;
+                        temp += " ";
+                    }
+                    $.log(`获取uq_id成功，uq_id=${temp}`)
+
+                }
+            } catch (e) {
+                $.log(e)
+            }
+            resolve();
+        })
     })
 }
+
+
+
+function getTaskAward() {
+    return new Promise((resolve, reject) => {
+        const url = "http://pic.anngudao.com/dati/task/getTaskAward";
+        const headers = {
+
+        };
+        const body = `session_id=${session_id}&sign=${sign}&task_id=${task_id}&time=${currenttime}`;
+        const request = {
+            url: url,
+            headers: headers,
+            body: body
+        };
+
+        $.post(request, async (error, response, data) => {
+            try {
+                if (error) {
+                    $.log('请求失败');
+                }
+                else {
+
+                    result = JSON.parse(data);
+                    if (result.message.indexOf("操作成功") != -1) {
+                        $.log(`${result.message}`)
+                        pl_id = result.data.pl_id;
+                        resolve(true)
+                    }
+                    else {
+                        $.log(`${result.message}`)
+                        resolve(false)
+
+                    }
+                }
+            } catch (e) {
+                $.log(e)
+            }
+
+        })
+    })
+}
+
+
+
+function login() {
+    return new Promise((resolve, reject) => {
+        const url = "http://pic.anngudao.com/index/user/login";
+        const headers = {
+            "App-Refer": "2"
+        };
+        const body = `imei=${imei}&sign=${sign}&time=${currenttime}`;
+        const request = {
+            url: url,
+            headers: headers,
+            body: body
+        };
+
+        $.post(request, async (error, response, data) => {
+            try {
+                if (error) {
+                    $.log('请求失败');
+                }
+                else {
+                    //$.log(data);
+                    result = JSON.parse(data)
+                    if (result.result == 1) {
+                        session_id = result.data.session_id
+                        $.log(`获取session_id成功，session_id:${session_id}`);
+                        resolve(true);
+                    }
+                    else {
+                        $.log("登录失败");
+                        resolve(false);
+                    }
+
+                }
+            } catch (e) {
+                $.log(e)
+            }
+
+        })
+    })
+}
+
+
+
+function doubleReward() {
+    return new Promise((resolve, reject) => {
+        const url = "http://pic.anngudao.com/index/user/doubleReward";
+        const headers = {
+        };
+        const body = `pl_id=${pl_id}&session_id=${session_id}&sign=${sign}&time=${currenttime}`;
+        const request = {
+            url: url,
+            headers: headers,
+            body: body
+        };
+
+        $.post(request, async (error, response, data) => {
+            try {
+                if (error) {
+                    $.log('请求失败');
+                }
+                else {
+                    result = JSON.parse(data);
+                    if (result.result == 1) {
+                        $.log(`${result.message}`)
+                    }
+                }
+            } catch (e) {
+                $.log(e)
+            }
+            resolve();
+        })
+    })
+}
+
+
+
+
 
 
 
