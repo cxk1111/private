@@ -35,10 +35,6 @@ jobs:
           node Task/youthshare4.js
           node Task/youthshare5.js
           node Task/youthshare6.js
-          node Task/youthkankan1.js
-          node Task/youthSign.js
-      - name: 'run 【dsj】'
-        run: |
-          cd ~/js   
-          node Task/dsjtx1.js
+          node Task/youth.js
+
 

@@ -26,10 +26,10 @@ jobs:
           npm install cron
           npm install request
           npm install md5-node
-      - name: 'run 【zq】'
+      - name: 'run 【dsj】'
         run: |
           cd ~/js   
-          node Task/Youth_Kankan.js
+          node Task/dsjtx1.js
       - name: 'run 【ttdt】'
         run: |
           cd ~/js   
