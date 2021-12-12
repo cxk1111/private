@@ -968,7 +968,7 @@ function rotaryCheck() {
 //开启宝箱
 function runRotary(index) {
     return new Promise((resolve, reject) => {
-        const rotarbody = signheaderVal.split("&")[15] + '&' + signheaderVal.split("&")[8] + '&num=' + index;
+        const rotarbody = JSON.stringify(signheaderVal).split("&")[15] + '&' + JSON.stringify(signheaderVal).split("&")[8] + '&num=' + index;
         const time = new Date().getTime();
         const url = {
             url: `${YOUTH_HOST}RotaryTable/chestReward?_=${time}`,
