@@ -1009,7 +1009,7 @@ function TurnDouble() {
             $.post(url, (error, response, data) => {
                 Doubleres = JSON.parse(data)
                 if (Doubleres.status == 1) {
-                    detail += `【转盘双倍】+${Doubleres.data.score1}青豆 剩余${rotaryres.data.doubleNum}次\n`
+                    detail += `【转盘双倍】+${Doubleres.data.score1}青豆 剩余${Doubleres.data.doubleNum}次\n`
                 } else {
                     //detail += `【转盘双倍】失败 ${Doubleres.msg}\n`
 
