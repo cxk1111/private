@@ -29,12 +29,6 @@ jobs:
       - name: 'run 【zq】'
         run: |
           cd ~/js   
-          node Task/youthshare1.js
-          node Task/youthshare2.js
-          node Task/youthshare3.js
-          node Task/youthshare4.js
-          node Task/youthshare5.js
-          node Task/youthshare6.js
           node Task/youth.js
 
 
