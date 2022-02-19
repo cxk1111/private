@@ -14,16 +14,9 @@ iv = '9NwGV8Ov';   //十六位十六进制数作为密钥偏移量
 
 
 let ckarr = [
-    //"https://kd.youth.cn/WebApi/NewUserTask/info_new?uuid=4a1b3853cdd08dfaa64af9e590ffce29&sign=b07916e4ea75402d3daf24b6eae1cba8&channel_code=80000000&uid=61970636&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=0d054d7b9fa09a976b6fa0c271c90c20&openudid=4a1b3853cdd08dfaa64af9e590ffce29&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=58306588&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWSwt59shHyO4K_OqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFoober9-qq4GJebGEY2Ft&device_model=iPhone_6&subv=1.5.1&&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWSwt59shHyO4K_OqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFoober9-qq4GJebGEY2Ft&cookie_id=0d054d7b9fa09a976b6fa0c271c90c20&popup_task=1&uuid=4a1b3853cdd08dfaa64af9e590ffce29&sign=b07916e4ea75402d3daf24b6eae1cba8&channel_code=80000000&uid=61970636&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=0d054d7b9fa09a976b6fa0c271c90c20&openudid=4a1b3853cdd08dfaa64af9e590ffce29&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=58306588&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWSwt59shHyO4K_OqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFoober9-qq4GJebGEY2Ft&device_model=iPhone_6&subv=1.5.1&=undefined&request_time=1641721140",
-    //"https://kd.youth.cn/WebApi/NewUserTask/info_new?uuid=29614d4e7e0d40fe203471feef6b63d7&sign=d65ae11511e76ed093579d8cff8fa1b3&channel_code=80000000&uid=61399347&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=280e8172002d01d432e0a06b75e1fd6c&openudid=29614d4e7e0d40fe203471feef6b63d7&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=57824586&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWSwt4FuhoyClq_eqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKbsKmurYF5gW6EY2Ft&device_model=iPhone_6&subv=1.5.1&&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWSwt4FuhoyClq_eqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKbsKmurYF5gW6EY2Ft&cookie_id=280e8172002d01d432e0a06b75e1fd6c&popup_task=1&uuid=29614d4e7e0d40fe203471feef6b63d7&sign=d65ae11511e76ed093579d8cff8fa1b3&channel_code=80000000&uid=61399347&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=280e8172002d01d432e0a06b75e1fd6c&openudid=29614d4e7e0d40fe203471feef6b63d7&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=57824586&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWSwt4FuhoyClq_eqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKbsKmurYF5gW6EY2Ft&device_model=iPhone_6&subv=1.5.1&=undefined&request_time=1639833082",
-    //"https://kd.youth.cn/WebApi/NewUserTask/info_new?uuid=b978812ed4eca2788de4cdbd9dcf1d6a&sign=e6b1db5d469e47673ec78189c9a185d7&channel_code=80000000&uid=52492099&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=4925ec5c4d45c993ee7e5e67c023ab26&openudid=b978812ed4eca2788de4cdbd9dcf1d6a&device_type=1&device_brand=iphone&sm_device_id=20201228123402da73dceb251cd229768d9fa4abdb402a0191f0b9513f3084&device_id=49264133&version_code=202&os_version=14.6&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOwzYVuhKJ2m7C4qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKbrs_MZ4F5jWqEY2Ft&device_model=iPhone_6_Plus&subv=1.5.1&&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOwzYVuhKJ2m7C4qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKbrs_MZ4F5jWqEY2Ft&cookie_id=4925ec5c4d45c993ee7e5e67c023ab26&popup_task=1&uuid=b978812ed4eca2788de4cdbd9dcf1d6a&sign=e6b1db5d469e47673ec78189c9a185d7&channel_code=80000000&uid=52492099&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=4925ec5c4d45c993ee7e5e67c023ab26&openudid=b978812ed4eca2788de4cdbd9dcf1d6a&device_type=1&device_brand=iphone&sm_device_id=20201228123402da73dceb251cd229768d9fa4abdb402a0191f0b9513f3084&device_id=49264133&version_code=202&os_version=14.6&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOwzYVuhKJ2m7C4qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKbrs_MZ4F5jWqEY2Ft&device_model=iPhone_6_Plus&subv=1.5.1&=undefined&request_time=1639632156",
-    //"https://kd.youth.cn/WebApi/NewUserTask/info_new?uuid=62c6c1d1e3ce95b56cdfddf0373bc9a3&sign=7b9fa0a64b81c92082ff019704f89ea0&channel_code=80000000&uid=59933413&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=2d197692991447cbf7fd68d56aad3bf5&openudid=62c6c1d1e3ce95b56cdfddf0373bc9a3&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=57675555&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOyt5-zhLKG3q7eqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKbrt_IaIGfibOEY2Ft&device_model=iPhone_6&subv=1.5.1&&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOyt5-zhLKG3q7eqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKbrt_IaIGfibOEY2Ft&cookie_id=2d197692991447cbf7fd68d56aad3bf5&popup_task=1&uuid=62c6c1d1e3ce95b56cdfddf0373bc9a3&sign=7b9fa0a64b81c92082ff019704f89ea0&channel_code=80000000&uid=59933413&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=2d197692991447cbf7fd68d56aad3bf5&openudid=62c6c1d1e3ce95b56cdfddf0373bc9a3&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=57675555&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOyt5-zhLKG3q7eqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKbrt_IaIGfibOEY2Ft&device_model=iPhone_6&subv=1.5.1&=undefined&request_time=1639389293",
-    //"https://kd.youth.cn/WebApi/NewUserTask/info_new?uuid=96f2502c5784ed682a907a00ae6bfbfd&sign=e796488fe461ccfd157436b2a3a381a5&channel_code=80000000&uid=53105199&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=80f6b58b80b68f8b13ee984b73a25181&openudid=96f2502c5784ed682a907a00ae6bfbfd&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=57472645&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOw3XmwhYx6m7C4qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKbrt_IZ4OJiWqEY2Ft&device_model=iPhone_6&subv=1.5.1&&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOw3XmwhYx6m7C4qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKbrt_IZ4OJiWqEY2Ft&cookie_id=80f6b58b80b68f8b13ee984b73a25181&popup_task=1&uuid=96f2502c5784ed682a907a00ae6bfbfd&sign=e796488fe461ccfd157436b2a3a381a5&channel_code=80000000&uid=53105199&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=80f6b58b80b68f8b13ee984b73a25181&openudid=96f2502c5784ed682a907a00ae6bfbfd&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=57472645&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOw3XmwhYx6m7C4qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKbrt_IZ4OJiWqEY2Ft&device_model=iPhone_6&subv=1.5.1&=undefined&request_time=1639388979",
-    //"https://kd.youth.cn/WebApi/NewUserTask/info_new?uuid=d84c65e2a2b03897b46fc69116f4cee4&sign=157cc37d97efa75275ce83b4dea81ec9&channel_code=80000000&uid=52806391&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=7bfe95c28eaa7bfe4bb04a0fce665958&openudid=d84c65e2a2b03897b46fc69116f4cee4&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=57204276&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOwzZuwhaKCm664qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKars-2rIOJdbKEY2Ft&device_model=iPhone_6&subv=1.5.1&&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOwzZuwhaKCm664qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKars-2rIOJdbKEY2Ft&cookie_id=7bfe95c28eaa7bfe4bb04a0fce665958&popup_task=1&uuid=d84c65e2a2b03897b46fc69116f4cee4&sign=157cc37d97efa75275ce83b4dea81ec9&channel_code=80000000&uid=52806391&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=7bfe95c28eaa7bfe4bb04a0fce665958&openudid=d84c65e2a2b03897b46fc69116f4cee4&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=57204276&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOwzZuwhaKCm664qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKars-2rIOJdbKEY2Ft&device_model=iPhone_6&subv=1.5.1&=undefined&request_time=1639382067",
-    //"https://kd.youth.cn/WebApi/NewUserTask/info_new?uuid=83acf7882ff3b104d3a307c5cb3d54d7&sign=7040b8458c55ed25759089ac17ec9088&channel_code=80000000&uid=58468405&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=60184b68a0b599505f0f8fcc120cc565&openudid=83acf7882ff3b104d3a307c5cb3d54d7&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=55392669&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOyp4VrhnyG3a-4qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooLerqmqqoOJgWyEY2Ft&device_model=iPhone_6&subv=1.5.1&&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOyp4VrhnyG3a-4qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooLerqmqqoOJgWyEY2Ft&cookie_id=60184b68a0b599505f0f8fcc120cc565&popup_task=1&uuid=83acf7882ff3b104d3a307c5cb3d54d7&sign=7040b8458c55ed25759089ac17ec9088&channel_code=80000000&uid=58468405&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=60184b68a0b599505f0f8fcc120cc565&openudid=83acf7882ff3b104d3a307c5cb3d54d7&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=55392669&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOyp4VrhnyG3a-4qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooLerqmqqoOJgWyEY2Ft&device_model=iPhone_6&subv=1.5.1&=undefined&request_time=1639381899",
-    //"https://kd.youth.cn/WebApi/NewUserTask/info_new?uuid=0895ee4d9753416c1805b54642a076a7&sign=73f6ee405847c92c97e815a844cfa3c9&channel_code=80000000&uid=54115136&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=a1f645d5d7685dc21c647e29b086c5ef&openudid=0895ee4d9753416c1805b54642a076a7&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=55439374&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOxp3mxhYx64K_OqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooLert-qaIKJdbCEY2Ft&device_model=iPhone_6&subv=1.5.1&&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOxp3mxhYx64K_OqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooLert-qaIKJdbCEY2Ft&cookie_id=a1f645d5d7685dc21c647e29b086c5ef&popup_task=1&uuid=0895ee4d9753416c1805b54642a076a7&sign=73f6ee405847c92c97e815a844cfa3c9&channel_code=80000000&uid=54115136&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=a1f645d5d7685dc21c647e29b086c5ef&openudid=0895ee4d9753416c1805b54642a076a7&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=55439374&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOxp3mxhYx64K_OqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooLert-qaIKJdbCEY2Ft&device_model=iPhone_6&subv=1.5.1&=undefined&request_time=1639380606",
+
     "https://kd.youth.cn/WebApi/NewUserTask/info_new?uuid=b56f63657dce75ce71ccd909e1b7d505&sign=840075b555206a8b497af7cf44567ca2&channel_code=80000000&uid=60944825&channel=80000000&access=WIfI&app_version=1.7.8&device_platform=iphone&cookie_id=720be8dc07e5d0ac4d6a07cd3e86c9d3&openudid=b56f63657dce75ce71ccd909e1b7d505&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&version_code=178&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWSwp59phXyc36-4qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFoobesLmyrIF5l7GEY2Ft&device_model=iPhone_6&subv=1.5.1&&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWSwp59phXyc36-4qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFoobesLmyrIF5l7GEY2Ft&cookie_id=720be8dc07e5d0ac4d6a07cd3e86c9d3&popup_task=1&uuid=b56f63657dce75ce71ccd909e1b7d505&sign=840075b555206a8b497af7cf44567ca2&channel_code=80000000&uid=60944825&channel=80000000&access=WIfI&app_version=1.7.8&device_platform=iphone&cookie_id=720be8dc07e5d0ac4d6a07cd3e86c9d3&openudid=b56f63657dce75ce71ccd909e1b7d505&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&version_code=178&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWSwp59phXyc36-4qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFoobesLmyrIF5l7GEY2Ft&device_model=iPhone_6&subv=1.5.1&=undefined&request_time=1642928751",
-    "https://kd.youth.cn/WebApi/NewUserTask/info_new?uuid=9ad022ebd0e6419c7ef5ab36f27b8ef8&sign=1f1bda02315e94a70aba728820903786&channel_code=80000000&uid=59553881&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=cda9c7be70bfb7ff1262af8603c0b835&openudid=9ad022ebd0e6419c7ef5ab36f27b8ef8&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=55450463&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOyt4lqhLKcmq64qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKWsLmiq4KJm2mEY2Ft&device_model=iPhone_6&subv=1.5.1&&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOyt4lqhLKcmq64qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKWsLmiq4KJm2mEY2Ft&cookie_id=cda9c7be70bfb7ff1262af8603c0b835&popup_task=1&uuid=9ad022ebd0e6419c7ef5ab36f27b8ef8&sign=1f1bda02315e94a70aba728820903786&channel_code=80000000&uid=59553881&channel=80000000&access=WIfI&app_version=2.0.2&device_platform=iphone&cookie_id=cda9c7be70bfb7ff1262af8603c0b835&openudid=9ad022ebd0e6419c7ef5ab36f27b8ef8&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&device_id=55450463&version_code=202&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWOyt4lqhLKcmq64qmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooKWsLmiq4KJm2mEY2Ft&device_model=iPhone_6&subv=1.5.1&=undefined&request_time=1639234085"
+    "https://kd.youth.cn/WebApi/NewUserTask/info_new?uuid=a5039064a1c17cee6a613859e1f78cc6&sign=78a57932a6f08c19f4d9c24c577cf7e0&channel_code=80000000&uid=63065713&channel=80000000&access=Wlan&app_version=1.7.8&device_platform=iphone&cookie_id=7de58cda24dbc54ccefa695b45690e88&openudid=a5039064a1c17cee6a613859e1f78cc6&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&version_code=178&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWSw3XVrhYyY3q7eqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooaXrs-6Z4OJm2yEY2Ft&device_model=iPhone_6&subv=1.5.1&&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWSw3XVrhYyY3q7eqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooaXrs-6Z4OJm2yEY2Ft&cookie_id=7de58cda24dbc54ccefa695b45690e88&popup_task=1&uuid=a5039064a1c17cee6a613859e1f78cc6&sign=78a57932a6f08c19f4d9c24c577cf7e0&channel_code=80000000&uid=63065713&channel=80000000&access=Wlan&app_version=1.7.8&device_platform=iphone&cookie_id=7de58cda24dbc54ccefa695b45690e88&openudid=a5039064a1c17cee6a613859e1f78cc6&device_type=1&device_brand=iphone&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&version_code=178&os_version=14.3&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualq2jmrCarWSw3XVrhYyY3q7eqmqXr6NthJl7mI-shMmXeqDau4StacS3o7GFooaXrs-6Z4OJm2yEY2Ft&device_model=iPhone_6&subv=1.5.1&=undefined&request_time=1645269051"
 
 ]
 
@@ -44,48 +37,48 @@ let ckarr = [
 
 
 async function all() {
-    
-        //任务一：看看赚
-        for (let i = 0; i < ckarr.length; i++) {
-            $.log(`账号${i + 1}：执行看看赚`)
-            cookie = ckarr[i].match(/cookie=(.*?)&/)[1]; //cookiearr[i];
-            cookie_id = ckarr[i].match(/cookie_id=(.*?)&/)[1];
-            uid = ckarr[i].match(/&uid=(.*?)&/)[1];
-            imei = randomNum(000000000000000, 999999999999999);
-            banner_idarr = [];
-            await getTaskBrowse();
-            await getTaskBrowse2();
-            for (let i = 0; i < banner_idarr.length; i++) {
-                $.log(`\n准备第${i + 1}次任务`);
-                let thetempbody = `channel_code=80000000&uid=${uid}&request_time=1639228673.915065&access=WIfI&channel=80000000&phone_version=14.3&app_version=2.0.2&phone_network=WIfI&device_type=1&client_version=2.0.2&task_id=${banner_idarr[i]}&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&version_code=2.0.2&os_version=14.3&sign=368d127c6612c9323ef1388eee3985cb`
-                await getbody(thetempbody);
-                await adlickstart();
+
+    //任务一：看看赚
+    for (let i = 0; i < ckarr.length; i++) {
+        $.log(`账号${i + 1}：执行看看赚`)
+        cookie = ckarr[i].match(/cookie=(.*?)&/)[1]; //cookiearr[i];
+        cookie_id = ckarr[i].match(/cookie_id=(.*?)&/)[1];
+        uid = ckarr[i].match(/&uid=(.*?)&/)[1];
+        imei = randomNum(000000000000000, 999999999999999);
+        banner_idarr = [];
+        await getTaskBrowse();
+        await getTaskBrowse2();
+        for (let i = 0; i < banner_idarr.length; i++) {
+            $.log(`\n准备第${i + 1}次任务`);
+            let thetempbody = `channel_code=80000000&uid=${uid}&request_time=1639228673.915065&access=WIfI&channel=80000000&phone_version=14.3&app_version=2.0.2&phone_network=WIfI&device_type=1&client_version=2.0.2&task_id=${banner_idarr[i]}&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&version_code=2.0.2&os_version=14.3&sign=368d127c6612c9323ef1388eee3985cb`
+            await getbody(thetempbody);
+            await adlickstart();
+            await $.wait(randomNum(0, 2000));
+            for (let i = 0; i < 6; i++) {
+                await bannerstatus(i);
                 await $.wait(randomNum(0, 2000));
-                for (let i = 0; i < 6; i++) {
-                    await bannerstatus(i);
-                    await $.wait(randomNum(0, 2000));
-                }
-                await adlickend();
             }
+            await adlickend();
         }
-    
-        //任务二：阅读
-        readidarr = [];
-        for (let i = 0; i < 5; i++) {
-            await getarticleid();
-            await getvideoid();
+    }
+
+    //任务二：阅读
+    readidarr = [];
+    for (let i = 0; i < 5; i++) {
+        await getarticleid();
+        await getvideoid();
+    }
+
+    for (let i = 0; i < readidarr.length; i++) {
+        for (let j = 0; j < ckarr.length; j++) {
+            uid = ckarr[j].match(/&uid=(.*?)&/)[1];
+            let thetempbody = `access=WIFI&app_version=2.0.2&channel=80000000&channel_code=80000000&cid=80000000&client_version=2.0.2&device_brand=iphone&device_id=55439074&device_model=iPhone&device_platform=iphone&device_type=iphone&id=${readidarr[i]}&isnew=1&mobile_type=2&net_type=1&openudid=a635541d5d56684d53aaf373515c26ca&os_version=14.3&phone_code=a635541d5d56684d53aaf373515c26ca&phone_network=WIFI&platform=3&read_type=0&request_time=1639218733&resolution=750x1334&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&szlm_ddid=D2HmKye36ot8HphJGNJtZNeEkFI67D2E7b457KnGsBs2IXac&time=1639218734&uid=${uid}&uuid=a635541d5d56684d53aaf373515c26ca`
+            await getbody(thetempbody);
+            await readreward(j);
         }
-    
-        for (let i = 0; i < readidarr.length; i++) {
-            for (let j = 0; j < ckarr.length; j++) {
-                uid = ckarr[j].match(/&uid=(.*?)&/)[1];
-                let thetempbody = `access=WIFI&app_version=2.0.2&channel=80000000&channel_code=80000000&cid=80000000&client_version=2.0.2&device_brand=iphone&device_id=55439074&device_model=iPhone&device_platform=iphone&device_type=iphone&id=${readidarr[i]}&isnew=1&mobile_type=2&net_type=1&openudid=a635541d5d56684d53aaf373515c26ca&os_version=14.3&phone_code=a635541d5d56684d53aaf373515c26ca&phone_network=WIFI&platform=3&read_type=0&request_time=1639218733&resolution=750x1334&sm_device_id=20210807184220298c1aaa7490c8370aec08b29221f025017695a090360ce0&szlm_ddid=D2HmKye36ot8HphJGNJtZNeEkFI67D2E7b457KnGsBs2IXac&time=1639218734&uid=${uid}&uuid=a635541d5d56684d53aaf373515c26ca`
-                await getbody(thetempbody);
-                await readreward(j);
-            }
-            await $.wait(30000);
-        }
-    
+        await $.wait(30000);
+    }
+
     //任务三：签到
     for (let i = 0; i < ckarr.length; i++) {
         newtaskarr = ["taskbox_watch", "taskbox_ad", "taskbox_game", "taskbox_video", "taskbox_read"]
@@ -639,7 +632,7 @@ function sign() {
             if (signres.status == 1) {
                 signresult = `【签到结果】成功 🎉 明日+${signres.nextScore} `
                 //detail = `【签到结果】成功 🎉 青豆: +${signres.score}，明日青豆: +${signres.nextScore}\n`
-    
+
             } else if (signres.status == 0) {
                 signresult = `【签到结果】重复`;
                 detail = "";
@@ -1044,7 +1037,7 @@ function earningsInfo() {
     })
 }
 async function showmsg() {
-    $.msg($.name + "  " + nick + " ", subTitle, detail)  
+    $.msg($.name + "  " + nick + " ", subTitle, detail)
 }
 
 
